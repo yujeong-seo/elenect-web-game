@@ -1,0 +1,213 @@
+:root{    
+    --player-profile: 8vw;
+    --player-turn-sign: calc(1.5*var(--player-profile));
+    --board-width: 360px;
+    --board-height: 540px;
+    --main-background: linear-gradient(180deg, #161F38 0%, #223054 100%);
+    --side-background: linear-gradient(180deg, #414a644d 0%, #414A64 100%);
+    --text-colour: #ffffff;
+    --board-line: #ffffff4d;
+    --player-a-colour: #C23B3B;
+    --player-b-colour: #71DBEA;
+    
+    /* to be changed */
+    --howto-background: #1b1d38;
+    --result-background: #1b1d38cf; 
+}
+
+html{
+    height: 100%;
+    background: var(--main-background);
+    color: var(--text-colour);
+    font-family: 'GMarket Sans';
+}
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 80px;
+    justify-items: center;
+    align-items: center;
+    padding: 10px 10px 30px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: top;
+    margin: 5px;
+}
+
+#title{
+    font-size:30px;
+    font-family:'GMarket Sans';
+    position:relative;
+    color:#8fbbbc;
+    text-align:center;
+}
+
+.top_nav{
+    background: none;
+    color: var(--text-colour);
+    font-family: 'GMarket Sans';
+    font-size: 15px;
+    border: 0px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#game_board{
+    width: var(--board-width);
+    height: var(--board-height);
+    display: grid;
+    grid-template: repeat(15, 1fr) / repeat(10, 1fr);
+    border-radius: 10px;
+    border: 2px solid var(--board-line);
+    background-image: url("assets/background-grid.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.grid{
+    width: 36px;
+    height: 36px;
+    background: transparent;
+}
+
+.sidebar{
+    width: 80%;
+    height: 450px;
+    border-radius: 20px;
+    background: var(--side-background);
+    color: var(--text-colour);
+}
+
+.sidebar .player{
+    font-family: 'GMarket Sans';
+    font-size: 15px;
+    text-align: center;
+    padding: 30px 0px;
+}
+
+.sidebar .a_profile{
+    width: var(--player-profile);
+    height: var(--player-profile);
+    border-radius: 50%;
+    background: var(--player-a-colour);
+    position: relative;
+    left: calc(50% - (var(--player-profile)/2));
+    margin-top: 40px;
+}
+
+.sidebar .a_turn{
+    width: var(--player-turn-sign);
+    height: var(--player-turn-sign);
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(50% - (var(--player-turn-sign)/2));
+    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
+    border: 1vw solid var(--player-a-colour);
+    filter: drop-shadow(0px 0px 10px #ff5c5ca0);
+}
+
+.sidebar .b_profile{
+    width: var(--player-profile);
+    height: var(--player-profile);
+    border-radius: 50%;
+    background: var(--player-b-colour);
+    position: relative;
+    left: calc(50% - (var(--player-profile)/2));
+    margin-top: 40px;
+}
+
+.sidebar .b_turn{
+    width: var(--player-turn-sign);
+    height: var(--player-turn-sign);
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(50% - (var(--player-turn-sign)/2));
+    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
+    border: 1vw solid var(--player-b-colour);
+    filter: drop-shadow(0px 0px 10px #82f0ff90);
+}
+
+.a_token{
+    background: var(--player-a-colour);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.b-token{
+    background: var(--player-b-colour);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+
+
+/* Scraps ...  */
+
+.submit{
+    background-color:black;
+    color:whitesmoke;
+    font-family: 'GMarket Sans';
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.hline{
+    width:25px;
+    height:3px;
+    margin:auto;
+    background-color: var(--player-b-colour);
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.vline{
+    width:3px;
+    height:25px;
+    margin:auto;
+    background-color: var(--player-b-colour);
+    grid-row: 1/3;
+    grid-column: 1;
+}
+
+.angle1{
+    width:30px;
+    height:3px;
+    margin:auto;
+    background-color: var(--player-b-colour);
+    transform: rotate(45deg);
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+.angle2{
+    width:30px;
+    height:3px;
+    margin:auto;
+    background-color: var(--player-b-colour);
+    transform: rotate(-45deg);
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+.player1{
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: var(--player-b-colour);
+    grid-area: 1/1;
+    margin:auto;
+}
