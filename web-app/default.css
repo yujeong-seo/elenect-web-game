@@ -92,7 +92,7 @@ button:hover{
     padding: 30px 0px;
 }
 
-.sidebar .a_profile{
+#a_profile{
     width: var(--player-profile);
     height: var(--player-profile);
     border-radius: 50%;
@@ -102,7 +102,7 @@ button:hover{
     margin-top: 40px;
 }
 
-.sidebar .a_turn{
+#a_turn{
     width: var(--player-turn-sign);
     height: var(--player-turn-sign);
     border-radius: 50%;
@@ -112,9 +112,10 @@ button:hover{
     top: calc((var(--player-profile) - var(--player-turn-sign))/2);
     border: 1vw solid var(--player-a-colour);
     filter: drop-shadow(0px 0px 10px #ff5c5ca0);
+    display: none;
 }
 
-.sidebar .b_profile{
+#b_profile{
     width: var(--player-profile);
     height: var(--player-profile);
     border-radius: 50%;
@@ -124,7 +125,7 @@ button:hover{
     margin-top: 40px;
 }
 
-.sidebar .b_turn{
+#b_turn{
     width: var(--player-turn-sign);
     height: var(--player-turn-sign);
     border-radius: 50%;
@@ -134,6 +135,7 @@ button:hover{
     top: calc((var(--player-profile) - var(--player-turn-sign))/2);
     border: 1vw solid var(--player-b-colour);
     filter: drop-shadow(0px 0px 10px #82f0ff90);
+    display: none;
 }
 
 .a_token{
