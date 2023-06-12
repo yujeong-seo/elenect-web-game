@@ -141,13 +141,19 @@ button:hover{
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    position: relative;
+    left: calc(50% - calc(25px/2));
+    top: calc(50% - calc(25px/2));
 }
 
-.b-token{
+.b_token{
     background: var(--player-b-colour);
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    position: relative;
+    left: calc(50% - calc(25px/2));
+    top: calc(50% - calc(25px/2));
 }
 
 
