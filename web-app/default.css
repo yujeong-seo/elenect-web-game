@@ -1,6 +1,6 @@
 :root{    
     --player-profile: 8vw;
-    --player-turn-sign: calc(1.5*var(--player-profile));
+    --player-turn-sign: calc(1.4*var(--player-profile));
     --board-width: 360px;
     --board-height: 540px;
     --main-background: linear-gradient(180deg, #161F38 0%, #223054 100%);
@@ -8,11 +8,18 @@
     --text-colour: #ffffff;
     --board-line: #ffffff4d;
     --player-a-colour: #C23B3B;
+    --player-a-current: #c23b3b9a;
     --player-b-colour: #71DBEA;
+    --player-b-current: #71DBEA9a;
     
     /* to be changed */
     --howto-background: #1b1d38;
     --result-background: #1b1d38cf; 
+}
+
+@font-face {
+    font-family: ;
+    src: url();
 }
 
 html{
@@ -55,15 +62,12 @@ main{
     border: 0px;
 }
 
-button:hover{
-    cursor: pointer;
-}
-
 #game_board{
     width: var(--board-width);
     height: var(--board-height);
     display: grid;
     grid-template: repeat(15, 1fr) / repeat(10, 1fr);
+    place-items: center;
     border-radius: 10px;
     border: 2px solid var(--board-line);
     background-image: url("assets/background-grid.png");
@@ -77,6 +81,15 @@ button:hover{
     background: transparent;
 }
 
+.selectable:hover{
+    background: var(--board-line);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+} 
+
 .sidebar{
     width: 80%;
     height: 450px;
@@ -85,11 +98,19 @@ button:hover{
     color: var(--text-colour);
 }
 
-.sidebar .player{
+.player{
     font-family: 'GMarket Sans';
     font-size: 15px;
     text-align: center;
     padding: 30px 0px;
+}
+
+.game_info{
+    font-family: 'GMarket Sans';
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 60px 20px 0px;
 }
 
 #a_profile{
@@ -111,7 +132,7 @@ button:hover{
     left: calc(50% - (var(--player-turn-sign)/2));
     top: calc((var(--player-profile) - var(--player-turn-sign))/2);
     border: 1vw solid var(--player-a-colour);
-    filter: drop-shadow(0px 0px 10px #ff5c5ca0);
+    filter: drop-shadow(0px 0px 7px #ff5c5ca0);
     display: none;
 }
 
@@ -134,88 +155,42 @@ button:hover{
     left: calc(50% - (var(--player-turn-sign)/2));
     top: calc((var(--player-profile) - var(--player-turn-sign))/2);
     border: 1vw solid var(--player-b-colour);
-    filter: drop-shadow(0px 0px 10px #82f0ff90);
+    filter: drop-shadow(0px 0px 7px #82f0ff90);
     display: none;
 }
 
 .a_token{
-    background: var(--player-a-colour);
+    background: var(--player-a-current);
+    border: 4px solid var(--player-a-colour);
     width: 25px;
     height: 25px;
     border-radius: 50%;
     position: relative;
     left: calc(50% - calc(25px/2));
     top: calc(50% - calc(25px/2));
+    box-sizing: border-box;
 }
 
 .b_token{
-    background: var(--player-b-colour);
+    background: var(--player-b-current);
+    border: 4px solid var(--player-b-colour);
     width: 25px;
     height: 25px;
     border-radius: 50%;
     position: relative;
     left: calc(50% - calc(25px/2));
     top: calc(50% - calc(25px/2));
+    box-sizing: border-box;
 }
 
-
-
-/* Scraps ...  */
-
-.submit{
-    background-color:black;
-    color:whitesmoke;
-    font-family: 'GMarket Sans';
-    font-size: 15px;
-    width: 100px;
-    height: 30px;
-    border: 0px;
-    border-radius: 5px;
+.v_line{
+    width: 4px;
+    height: 11px;
+    z-index: 1;
 }
 
-.hline{
-    width:25px;
-    height:3px;
-    margin:auto;
-    background-color: var(--player-b-colour);
-    grid-column: 1/3;
-    grid-row: 1;
-}
-
-.vline{
-    width:3px;
-    height:25px;
-    margin:auto;
-    background-color: var(--player-b-colour);
-    grid-row: 1/3;
-    grid-column: 1;
-}
-
-.angle1{
-    width:30px;
-    height:3px;
-    margin:auto;
-    background-color: var(--player-b-colour);
-    transform: rotate(45deg);
-    grid-row: 1/3;
-    grid-column: 1/3;
-}
-
-.angle2{
-    width:30px;
-    height:3px;
-    margin:auto;
-    background-color: var(--player-b-colour);
-    transform: rotate(-45deg);
-    grid-row: 1/3;
-    grid-column: 1/3;
-}
-
-.player1{
-    width: 22px;
-    height: 22px;
-    border-radius: 11px;
-    background-color: var(--player-b-colour);
-    grid-area: 1/1;
-    margin:auto;
+.h_line{
+    width: 11px;
+    height: 4px;
+    z-index: 1;
 }

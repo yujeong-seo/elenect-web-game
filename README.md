@@ -2,6 +2,25 @@
 # Computing 2 Coursework Submission.
 **CID**: 02272316
 
+**Simple Explanation of Game**
+
+Hello, I am trying to create a connection game where two players take turn of placing the token and whenever one can not make any legal moves (= if none of the adjacent block is empty), that player loses. The basic inspiration is the game that connects the dots in one line. (pics below)
+But since I modified it to two player based game, 
+1/ The turn will shift between two players (one token at once)
+2/ The line will be connected by enabling them to place the token only to the adjacent part of their previous ones
+
+The functions I created up to now:
+- altering the turn of the players
+- placing the token to the grid 
+
+The functions I now have to create:
+- only enabling empty, adjacent cell to be selected
+- winning mechanism (checking the valid moves)
+
+Furthermore, additional features that I am considering:
+- placing the random blocks where the selection is disabled 
+- creating a line that connects between the tokens (visual aspect) 
+
 This is the submission template for your Computing 2 Applications coursework submission.
 
 ## Checklist
