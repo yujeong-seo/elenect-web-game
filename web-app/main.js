@@ -1,4 +1,4 @@
-import DotConnect from "./game.js";
+import DotConnect from "./dotconnect.js";
 
 const result_text = [
     " ",
@@ -15,14 +15,14 @@ const game_board = document.getElementById("game_board");
 const a_turn = document.getElementById("a_turn");
 const b_turn = document.getElementById("b_turn");
 
-const board = DotConnect.initial_board;
+const board = DotConnect.initial_board();
 const prev_positions = DotConnect.prev_positions;
 const curr_positions = DotConnect.curr_positions;
 
 let turn = 0;
 let counter = 0;
 let token;
-let player = DotConnect.players[turn];
+let players = ["player_a", "player_b"];
 
 const create_board = function () {
     board.forEach(function (row, i) {

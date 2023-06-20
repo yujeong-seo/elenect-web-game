@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="DotConnect.html">DotConnect</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="DotConnect.html">DotConnect</a><ul class='methods'><li data-type='method'><a href="DotConnect.html#.connected_dots">connected_dots</a></li><li data-type='method'><a href="DotConnect.html#.empty_adjacent">empty_adjacent</a></li><li data-type='method'><a href="DotConnect.html#.fill_board">fill_board</a></li><li data-type='method'><a href="DotConnect.html#.initial_board">initial_board</a></li><li data-type='method'><a href="DotConnect.html#.is_ended">is_ended</a></li><li data-type='method'><a href="DotConnect.html#.swap_turn">swap_turn</a></li></ul></li></ul>
     
 </nav>
 
@@ -75,13 +75,15 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>game.js is a module to model and play Dot Connect and related games.</p></li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li><p>'dotconnect.js' is a module to model and play Dot Connect and related games. <br>
+Dot Connect is a game where user connects dots to make the longest line as possible. <br>
+In this web app, it is implemented as two player and grid-based connection game.</p></li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="game.js.html">game.js</a>, <a href="game.js.html#line3">line 3</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -174,13 +176,1091 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".connected_dots"><span class="type-signature type-signature-static">(static) </span>connected_dots<span class="signature">(board)</span><span class="type-signature"> &rarr; {Array.&lt;number>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Returns the numbers of total connected dots of both player.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The board to count.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of number of connected dots.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;number></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".empty_adjacent"><span class="type-signature type-signature-static">(static) </span>empty_adjacent<span class="signature">(board, turn)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;number>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Returns the array of positions that player
+can place their next tokens. <br>
+The positions are empty (no tokens placed)
+and is adjacent to the most recent token that the player has placed.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line123">line 123</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The board to analyse.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>turn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.turn">DotConnect.turn</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current player.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of positions on board grid.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Array.&lt;number>></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".fill_board"><span class="type-signature type-signature-static">(static) </span>fill_board<span class="signature">(board, turn)</span><span class="type-signature"> &rarr; {void}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>As the token is placed onto the grid, it fills
+the board with the corresponding string identifier (&quot;a&quot; or &quot;b&quot;). <br>
+Helps identifying which cell is filled with which player's token or empty.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The board to add identifier.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>turn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.turn">DotConnect.turn</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current player.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Adds identifier, returns nothing.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".initial_board"><span class="type-signature type-signature-static">(static) </span>initial_board<span class="signature">(row<span class="signature-attributes">opt</span>, column<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DotConnect.html#.board">DotConnect.board</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Creates a new empty board with desired rows and columns. <br>
+Can be specified with rows and columns input.
+Unless there is specified value, returns a 10x15 board.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>row</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>15</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The row (height) of the new board.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>column</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>10</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The column (width) of the new board.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An empty board for starting the game.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".is_ended"><span class="type-signature type-signature-static">(static) </span>is_ended<span class="signature">(board)</span><span class="type-signature"> &rarr; {string|undefined}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>If the game is ended, either returns the string of the
+winner (&quot;a&quot; or &quot;b&quot;) or &quot;tie&quot; after checking the conditions.
+If not ended, returns undefined. <br>
+Uses <a href="DotConnect.html#.empty_adjacent"><code>DotConnect.empty_adjacent</code></a> and <a href="DotConnect.html#.connected_dots"><code>DotConnect.connected_dots</code></a>
+to check the status and if any more legal moves can be made.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line178">line 178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The board to analyse.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A result of the game.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".swap_turn"><span class="type-signature type-signature-static">(static) </span>swap_turn<span class="signature">(turn)</span><span class="type-signature"> &rarr; {0|1}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Changes the turn of the player and
+return which player is next to play.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line83">line 83</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>turn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.turn">DotConnect.turn</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current player.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The next player to play.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Type Definitions</h3>
 
         
                 
-<h4 class="name" id=".Board">Board</h4>
+<h4 class="name" id=".board">board</h4>
 
 
 
@@ -189,14 +1269,15 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>A Board is an 10x15 grid that tokens can be placed into one at a time.
-Tokens fill up empty positions -</p></li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li><p>A Board is an 10x15 rectangular grid that tokens can be placed into
+one at a time. <br>
+Tokens can be placed in any empty positions by user selection.</p></li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="game.js.html">game.js</a>, <a href="game.js.html#line11">line 11</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -236,8 +1317,9 @@ Tokens fill up empty positions -</p></li></ul></dd>
 
 
 <div class="description usertext">
-    <p>A Board is an 10x15 grid that tokens can be placed into one at a time.
-Tokens fill up empty positions -</p>
+    <p>A Board is an 10x15 rectangular grid that tokens can be placed into
+one at a time. <br>
+Tokens can be placed in any empty positions by user selection.</p>
 </div>
 
 
@@ -246,7 +1328,336 @@ Tokens fill up empty positions -</p>
     <ul>
         <li>
             
-<span class="param-type">Array.&lt;Array.&lt;DotConnect.token_or_empty>></span>
+<span class="param-type">Array.&lt;Array.&lt;number>></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".curr_positions">curr_positions</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>An object 'curr_positions' stores the grid positions of
+the most current token. <br> The keys are the turn of the players
+and corresponding values stores that player's current token position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>An object 'curr_positions' stores the grid positions of
+the most current token. <br> The keys are the turn of the players
+and corresponding values stores that player's current token position.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object.&lt;string, Array.&lt;number>></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".prev_positions">prev_positions</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>An object 'prev_positions' stores the grid positions of
+the previous token. <br> The keys are the turn of the players
+and corresponding values stores that player's previous token position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>An object 'prev_positions' stores the grid positions of
+the previous token. <br> The keys are the turn of the players
+and corresponding values stores that player's previous token position.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object.&lt;string, Array.&lt;number>></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".tokens">tokens</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>An array 'tokens' stores the type of tokens that
+could be placed on the game board grid.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>An array 'tokens' stores the type of tokens that
+could be placed on the game board grid.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".turn">turn</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>A turn indicates the current player's turn. <br>
+Turn 0 indicates player A (fire), and
+turn 1 indicates player B (water).</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>A turn indicates the current player's turn. <br>
+Turn 0 indicates player A (fire), and
+turn 1 indicates player B (water).</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
 
 
 
@@ -276,7 +1687,7 @@ Tokens fill up empty positions -</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Mon Jun 19 2023 14:30:12 GMT+0100 (British Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jun 20 2023 19:47:53 GMT+0100 (British Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
