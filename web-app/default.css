@@ -1,4 +1,4 @@
-:root{    
+:root{
     --player-profile: 8vw;
     --player-turn-sign: calc(1.4*var(--player-profile));
     --board-width: 360px;
@@ -13,12 +13,12 @@
     --player-b-current: #71DBEA9a;
     
     /* to be changed */
-    --howto-background: #1b1d38;
+    --how-to-background: #1b1d38;
     --result-background: #1b1d38cf; 
 }
 
 @font-face {
-    font-family: ;
+    font-family: 'GMarket Sans';
     src: url();
 }
 
@@ -27,6 +27,7 @@ html{
     background: var(--main-background);
     color: var(--text-colour);
     font-family: 'GMarket Sans';
+    min-width: 650px;
 }
 
 header{
@@ -63,6 +64,7 @@ main{
 }
 
 #game_board{
+    position: relative;
     width: var(--board-width);
     height: var(--board-height);
     display: grid;
@@ -73,6 +75,16 @@ main{
     background-image: url("assets/background-grid.png");
     background-size: cover;
     background-position: center;
+}
+
+#line_canvas{
+    position: absolute;
+    width: var(--board-width);
+    height: var(--board-height);
+    display: grid;
+    grid-template: repeat(15, 1fr) / repeat(10, 1fr);
+    place-items: center;
+    border: 2px solid transparent;
 }
 
 .grid{
@@ -100,24 +112,25 @@ main{
 
 .player{
     font-family: 'GMarket Sans';
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
-    padding: 30px 0px;
+    padding: 50px 0px;
 }
 
-.game_info{
+/* .game_info{
     font-family: 'GMarket Sans';
     font-size: 12px;
     display: flex;
     flex-wrap: wrap;
     margin: 60px 20px 0px;
-}
+} */
 
 #a_profile{
     width: var(--player-profile);
     height: var(--player-profile);
     border-radius: 50%;
-    background: var(--player-a-colour);
+    background-image: url("assets/a-profile-fire.png");
+    background-size: cover;
     position: relative;
     left: calc(50% - (var(--player-profile)/2));
     margin-top: 40px;
@@ -136,11 +149,20 @@ main{
     display: none;
 }
 
+#a_ready{
+    font-family: 'GMarket Sans';
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    padding: 80px 0px 0px;
+}
+
 #b_profile{
     width: var(--player-profile);
     height: var(--player-profile);
     border-radius: 50%;
-    background: var(--player-b-colour);
+    background-image: url("assets/b-profile-water.png");
+    background-size: cover;
     position: relative;
     left: calc(50% - (var(--player-profile)/2));
     margin-top: 40px;
@@ -157,6 +179,14 @@ main{
     border: 1vw solid var(--player-b-colour);
     filter: drop-shadow(0px 0px 7px #82f0ff90);
     display: none;
+}
+
+#b_ready{
+    font-family: 'GMarket Sans';
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    padding: 80px 0px 0px;
 }
 
 .a_token{
@@ -185,12 +215,12 @@ main{
 
 .v_line{
     width: 4px;
-    height: 11px;
+    height: 15px;
     z-index: 1;
 }
 
 .h_line{
-    width: 11px;
+    width: 15px;
     height: 4px;
     z-index: 1;
 }

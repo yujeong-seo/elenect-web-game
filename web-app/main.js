@@ -1,20 +1,28 @@
-import R from "./ramda.js";
 import DotConnect from "./game.js";
+
+const result_text = [
+    " ",
+    " ",
+    " "
+];
+
+const turn_text = [
+    "Your turn!",
+    "Waiting..."
+];
 
 const game_board = document.getElementById("game_board");
 const a_turn = document.getElementById("a_turn");
 const b_turn = document.getElementById("b_turn");
+
 const board = DotConnect.initial_board;
+const prev_positions = DotConnect.prev_positions;
+const curr_positions = DotConnect.curr_positions;
 
 let turn = 0;
 let counter = 0;
 let token;
-let player;
-// player = DotConnect.players[turn];
-let a_curr_position;
-let a_prev_position;
-let b_curr_position;
-let b_prev_position;
+let player = DotConnect.players[turn];
 
 const create_board = function () {
     board.forEach(function (row, i) {
@@ -23,7 +31,6 @@ const create_board = function () {
             grid_element.id = `${i}-${j}`;
             grid_element.classList.add("grid");
             game_board.append(grid_element);
-            // when setting obstacles, add event listeners when item == ""
             grid_element.addEventListener("click", play);
             a_turn.style.display = "block"; // start with a_turn
         });
@@ -31,28 +38,45 @@ const create_board = function () {
 };
 
 const play = function (event) {
-    if (counter >= 1) {
-        enable_adjacent();
-    }
     add_token(event);
     const selected_cell = event.target.id.split("-");
+    curr_positions[turn] = selected_cell.map((item) => parseInt(item));
+    const curr_position = curr_positions[turn];
+    const prev_position = prev_positions[turn];
+
+    DotConnect.fill_board(board, turn);
+
     if (turn === 0) {
-        a_curr_position = selected_cell.map((item) => parseInt(item));
         a_turn.style.display = "none"; // make it invisible
         b_turn.style.display = "block"; // make it visible
-        board[a_curr_position[0]][a_curr_position[1]] = "a";
-        change_prev_tokens(a_prev_position);
-        a_prev_position = a_curr_position;
     } else {
-        b_curr_position = selected_cell.map((item) => parseInt(item));
         a_turn.style.display = "block";
         b_turn.style.display = "none";
-        board[b_curr_position[0]][b_curr_position[1]] = "b";
-        change_prev_tokens(b_prev_position);
-        b_prev_position = b_curr_position;
     }
+
+    document.getElementById("a_ready").textContent = turn_text[1 - turn];
+    document.getElementById("b_ready").textContent = turn_text[turn];
+
+    change_prev_tokens();
+    draw_line(prev_position, curr_position);
+    prev_positions[turn] = curr_positions[turn];
     turn = DotConnect.swap_turn(turn);
     counter += 1;
+    if (counter >= 2) {
+        enable_adjacent();
+    }
+    // if game_end
+};
+
+const game_end = function (board) {
+    const result = DotConnect.is_ended(board);
+    if (result === "a") {
+        // add
+    } else if (result === "b") {
+        // add
+    } else if (result === "tie") {
+        // add
+    }
 };
 
 const add_token = function (event) {
@@ -75,31 +99,24 @@ const remove_all = function () {
 };
 
 const enable_adjacent = function () {
-    let adjacent;
     remove_all();
-
-    adjacent = (
-        turn === 1
-        ? DotConnect.adjacent_cell(a_curr_position)
-        : DotConnect.adjacent_cell(b_curr_position)
-    );
-
+    const adjacent = DotConnect.empty_adjacent(board, turn);
     adjacent.forEach(function (item) {
         const row = item[0];
         const col = item[1];
-        if (board[row][col] === "") {
-            const empty_adjacent = document.getElementById(row + "-" + col);
-            empty_adjacent.addEventListener("click", play);
-            const add_hover = empty_adjacent.classList.add("selectable");
-            empty_adjacent.addEventListener("mouseenter", add_hover);
-        }
+        const adjacent_element = document.getElementById(row + "-" + col);
+        adjacent_element.addEventListener("click", play);
+        const add_hover = adjacent_element.classList.add("selectable");
+        adjacent_element.addEventListener("mouseenter", add_hover);
     });
 };
 
-const change_prev_tokens = function (prev_position) {
+// Visual elements
+
+const change_prev_tokens = function () {
     if (counter > 1) {
-        const row = prev_position[0];
-        const col = prev_position[1];
+        const row = prev_positions[turn][0];
+        const col = prev_positions[turn][1];
         const parent_div = document.getElementById(row + "-" + col);
         const prev_token = parent_div.getElementsByClassName(token)[0];
         prev_token.style.background = (
@@ -110,27 +127,35 @@ const change_prev_tokens = function (prev_position) {
     }
 };
 
-// problem: when adding a "div" element for the line,
-// previous tokens move behind ...
-// want to add line without affecting the position of tokens
-const draw_line = function (before, end) {
+const draw_line = function (start, end) {
     if (counter > 1) {
-        const beforeX = before[0];
-        const beforeY = before[1];
+        const line_canvas = document.getElementById("line_canvas");
+        const startX = start[0];
+        const startY = start[1];
         const endX = end[0];
         const endY = end[1];
         const line = document.createElement("div");
 
-        if (beforeX === endX) {
+        if (startX === endX) {
             line.classList.add("h_line");
-            line.style.gridRow = beforeX + 1;
-            line.style.gridColumnStart = beforeY + 1;
-            line.style.gridColumnEnd = endY + 2;
-        } else if (beforeY === endY) {
+            line.style.gridRow = startX + 1;
+            if (startY < endY) {
+                line.style.gridColumnStart = startY + 1;
+                line.style.gridColumnEnd = endY + 2;
+            } else {
+                line.style.gridColumnStart = endY + 1;
+                line.style.gridColumnEnd = startY + 2;
+            }
+        } else if (startY === endY) {
             line.classList.add("v_line");
-            line.style.gridRowStart = beforeX + 1;
-            line.style.gridRowEnd = endX + 2;
-            line.style.gridColumn = beforeY + 1;
+            if (startX < endX) {
+                line.style.gridRowStart = startX + 1;
+                line.style.gridRowEnd = endX + 2;
+            } else {
+                line.style.gridRowStart = endX + 1;
+                line.style.gridRowEnd = startX + 2;
+            }
+            line.style.gridColumn = startY + 1;
         }
 
         line.style.background = (
@@ -139,7 +164,7 @@ const draw_line = function (before, end) {
             : "#71DBEA"
         );
 
-        game_board.append(line);
+        line_canvas.append(line);
     }
 };
 
