@@ -3,30 +3,45 @@
 <!doctype html> <!-- This first line tells browsers to expect modern standard html 5 -->
 <html lang="en-gb"> <!-- This is indicates the page is written in British English, useful for accessibility -->
 <meta charset="utf-8"> <!-- This indicates how the file is encoded. utf-8 is standard -->
-<title> Temporary </title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
+<title> ELENECT : Dot Connect </title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
 <link rel="stylesheet" href="default.css"> <!-- Import style sheet – default.css -->
-<link rel="icon" href="./assets/favicon.png"> <!-- Import 'Favorites Icon' – favicon.png -->
 <script type="module" src="main.js"></script> <!-- Load the main script. Must be type="module". Have only one of these -->
 
 <header>
-    <button class="top_nav"> HOW TO PLAY </button>
-    <h1 id="title"> GAME TITLE </h1>
-    <a class="top_nav" href="../docs/DotConnect.html"> API </a> 
+    <button id="open_howto"></button>
+    <h1 id="title"> ELENECT </h1>
+    <a id="api_link" href="../docs/DotConnect.html"> API </a> 
 </header>
 
+<dialog id="howto">
+    <h2> How to Play ELENECT </h2>
+    <p id="main_exp">
+        While connecting your elements as long as possible, <br> try to block the path of the opponent!
+    </p>
+    <p class="sub_exp">
+        Place your first token anywhere on the grid.
+    </p>
+    <p class="sub_exp">
+        Only place the token to adjacent cell of the previous one afterwards.
+    </p>
+    <p class="sub_exp">
+        If there is no legal moves that you can make, you lose!
+    </p>
+    <button id="close_howto"> Back to Game </button>
+</dialog>
 
 <main>
     <div class="sidebar"> 
-        <div class="player">Fire</div>
+        <div class="player"> Fire </div>
         <div id="a_profile">
             <div id="a_turn"></div>
         </div>
-        <div id="a_ready"> Your turn!</div>
+        <div id="a_ready"> Your turn !</div>
     </div>
     <div id="line_canvas"></div>
     <div id="game_board"></div>
     <div class="sidebar">
-        <div class="player">Water</div>
+        <div class="player"> Water </div>
         <div id="b_profile">
             <div id="b_turn"></div>
         </div>
@@ -34,3 +49,9 @@
     </div>
 </main>
 
+<dialog id="result_dialog" tabindex="0" aria-label="Game over message">
+    <h2>GAME OVER</h2>
+    <div id="result_message"></div>
+    <div id="result_winner"></div>
+    <div id="instruction"> Click or press anything to restart. </div>
+</dialog>

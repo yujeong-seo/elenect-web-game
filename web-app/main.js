@@ -1,30 +1,37 @@
 import DotConnect from "./dotconnect.js";
 
 const result_text = [
-    " ",
-    " ",
-    " "
+    "Fire's unstoppable fury caused the evaporation of water.",
+    "The power of water successfully extinguished the fire.",
+    "The clash of elements reached an equilibrium."
+];
+
+const result_winner = [
+    "Fire wins !",
+    "Water wins !",
+    "Game is tied."
 ];
 
 const turn_text = [
-    "Your turn!",
+    "Your turn !",
     "Waiting..."
 ];
 
 const game_board = document.getElementById("game_board");
 const a_turn = document.getElementById("a_turn");
 const b_turn = document.getElementById("b_turn");
+const result_dialog = document.getElementById("result_dialog");
+const line_canvas = document.getElementById("line_canvas");
 
-const board = DotConnect.initial_board();
-const prev_positions = DotConnect.prev_positions;
-const curr_positions = DotConnect.curr_positions;
+let board = DotConnect.initial_board();
+let prev_positions = DotConnect.prev_positions;
+let curr_positions = DotConnect.curr_positions;
 
 let turn = 0;
 let counter = 0;
 let token;
-let players = ["player_a", "player_b"];
 
-const create_board = function () {
+const first_board = function () {
     board.forEach(function (row, i) {
         row.forEach(function (_item, j) {
             const grid_element = document.createElement("div");
@@ -32,9 +39,19 @@ const create_board = function () {
             grid_element.classList.add("grid");
             game_board.append(grid_element);
             grid_element.addEventListener("click", play);
-            a_turn.style.display = "block"; // start with a_turn
         });
     });
+    a_turn.style.display = "block"; // start with a_turn
+};
+
+const redraw_board = function () {
+    const grid_elements = document.querySelectorAll(".grid");
+    grid_elements.forEach(function (element) {
+        element.addEventListener("click", play);
+    });
+    a_turn.style.display = "block"; // start with a_turn
+    document.getElementById("a_ready").textContent = turn_text[0];
+    document.getElementById("b_ready").textContent = turn_text[1];
 };
 
 const play = function (event) {
@@ -65,17 +82,35 @@ const play = function (event) {
     if (counter >= 2) {
         enable_adjacent();
     }
-    // if game_end
+    check_game_end(board);
 };
 
-const game_end = function (board) {
+const check_game_end = function (board) {
+    let index;
+    let ended = true;
     const result = DotConnect.is_ended(board);
     if (result === "a") {
-        // add
+        index = 0;
     } else if (result === "b") {
-        // add
+        index = 1;
     } else if (result === "tie") {
-        // add
+        index = 2;
+    } else {
+        ended = false;
+    }
+
+    if (ended) {
+        document.getElementById("result_message").textContent = (
+            result_text[index]
+        );
+        document.getElementById("result_winner").textContent = (
+            result_winner[index]
+        );
+        document.getElementById("a_ready").textContent = "Game ended";
+        document.getElementById("b_ready").textContent = "Game ended";
+        a_turn.style.display = "none";
+        b_turn.style.display = "none";
+        result_dialog.showModal();
     }
 };
 
@@ -111,7 +146,35 @@ const enable_adjacent = function () {
     });
 };
 
+first_board();
+
+result_dialog.onclick = function () {
+    board = DotConnect.initial_board();
+    prev_positions = DotConnect.prev_positions;
+    curr_positions = DotConnect.curr_positions;
+    counter = 0;
+    turn = 0;
+    clear_elements();
+    redraw_board();
+    result_dialog.close();
+};
+
+result_dialog.onkeydown = result_dialog.onclick;
+
+
 // Visual elements
+
+const clear_elements = function () {
+    const line_element = line_canvas.querySelectorAll(".h_line, .v_line");
+    line_element.forEach(function (element) {
+        element.remove();
+    });
+
+    const token_element = document.querySelectorAll(".a_token, .b_token");
+    token_element.forEach(function (element) {
+        element.remove();
+    });
+};
 
 const change_prev_tokens = function () {
     if (counter > 1) {
@@ -129,7 +192,6 @@ const change_prev_tokens = function () {
 
 const draw_line = function (start, end) {
     if (counter > 1) {
-        const line_canvas = document.getElementById("line_canvas");
         const startX = start[0];
         const startY = start[1];
         const endX = end[0];
@@ -168,4 +230,15 @@ const draw_line = function (start, end) {
     }
 };
 
-create_board();
+// How-to-btn explanation
+const open_howto_btn = document.getElementById("open_howto");
+const close_howto_btn = document.getElementById("close_howto");
+const howto_dialog = document.getElementById("howto");
+
+open_howto_btn.onclick = function () {
+    howto_dialog.showModal();
+};
+
+close_howto_btn.onclick = function () {
+    howto_dialog.close();
+};

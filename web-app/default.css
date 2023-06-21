@@ -11,25 +11,35 @@
     --player-a-current: #c23b3b9a;
     --player-b-colour: #71DBEA;
     --player-b-current: #71DBEA9a;
-    
-    /* to be changed */
-    --how-to-background: #1b1d38;
-    --result-background: #1b1d38cf; 
 }
 
 @font-face {
-    font-family: 'GMarket Sans';
-    src: url();
+    font-family:'bitbit';
+    src: url(./assets-font/DNFBitBitTTF.ttf);
+    /* Licence: ./assets-font/BitBit_OFL.txt */
+}
+
+@font-face {
+    font-family:'montserrat-r';
+    src: url(./assets-font/Montserrat-Regular.ttf);
+    /* Licence: ./assets-font/Montserrat_OFL.txt */
+}
+
+@font-face {
+    font-family:'montserrat-b';
+    src: url(./assets-font/Montserrat-Bold.ttf);
+    /* Licence: ./assets-font/Montserrat_OFL.txt */
 }
 
 html{
     height: 100%;
     background: var(--main-background);
     color: var(--text-colour);
-    font-family: 'GMarket Sans';
+    font-family: 'montserrat-r';
     min-width: 650px;
 }
 
+/* Top header for title and navigation bars */
 header{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -39,28 +49,97 @@ header{
     padding: 10px 10px 30px;
 }
 
+#title{
+    font-size: 48px;
+    font-family: 'bitbit';
+    position: relative;
+    color: #ccfff9;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#api_link{
+    background: none;
+    color: var(--text-colour);
+    font-family: 'montserrat-r';
+    font-size: 18px;
+    border: 0px;
+}
+
+/* How-to-play button and pop-up dialog */
+#open_howto{
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    background-image: url("./assets-image/how-to.png");
+    opacity: 75%;
+    background-size: cover;
+    background-position: center;
+}
+
+#howto{
+    background: #161f38c0;
+    border: none;
+    color: var(--text-colour);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    min-width: 650px;
+}
+
+#howto::backdrop{
+    backdrop-filter: blur(4px);
+}
+
+
+#howto h2{
+    font-family: 'montserrat-b';
+    color: #ccfff9;
+    font-size: 26px;
+    margin-top: 110px;
+    padding: 25px;
+}
+
+#main_exp{
+    font-family: 'montserrat-b';
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.sub_exp{
+    font-family: 'montserrat-r';
+    font-size: 18px;
+    padding: 10px;
+}
+
+#close_howto{
+    width: 200px;
+    height: 40px;
+    border:  none;
+    border-radius: 10px;
+    font-family: 'montserrat-b';
+    font-size: 22px;
+    background: #a4aece;
+    color: #161F38;
+    margin: 50px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
+/* Main board in the center 
+For game board and canvas for line elements that overflows */
 main{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
     align-items: top;
     margin: 5px;
-}
-
-#title{
-    font-size:30px;
-    font-family:'GMarket Sans';
-    position:relative;
-    color:#8fbbbc;
-    text-align:center;
-}
-
-.top_nav{
-    background: none;
-    color: var(--text-colour);
-    font-family: 'GMarket Sans';
-    font-size: 15px;
-    border: 0px;
 }
 
 #game_board{
@@ -72,7 +151,7 @@ main{
     place-items: center;
     border-radius: 10px;
     border: 2px solid var(--board-line);
-    background-image: url("assets/background-grid.png");
+    background-image: url("./assets-image/background-grid.png");
     background-size: cover;
     background-position: center;
 }
@@ -101,93 +180,6 @@ main{
     position: relative;
     cursor: pointer;
 } 
-
-.sidebar{
-    width: 80%;
-    height: 450px;
-    border-radius: 20px;
-    background: var(--side-background);
-    color: var(--text-colour);
-}
-
-.player{
-    font-family: 'GMarket Sans';
-    font-size: 18px;
-    text-align: center;
-    padding: 50px 0px;
-}
-
-/* .game_info{
-    font-family: 'GMarket Sans';
-    font-size: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 60px 20px 0px;
-} */
-
-#a_profile{
-    width: var(--player-profile);
-    height: var(--player-profile);
-    border-radius: 50%;
-    background-image: url("assets/a-profile-fire.png");
-    background-size: cover;
-    position: relative;
-    left: calc(50% - (var(--player-profile)/2));
-    margin-top: 40px;
-}
-
-#a_turn{
-    width: var(--player-turn-sign);
-    height: var(--player-turn-sign);
-    border-radius: 50%;
-    box-sizing: border-box;
-    position: relative;
-    left: calc(50% - (var(--player-turn-sign)/2));
-    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
-    border: 1vw solid var(--player-a-colour);
-    filter: drop-shadow(0px 0px 7px #ff5c5ca0);
-    display: none;
-}
-
-#a_ready{
-    font-family: 'GMarket Sans';
-    font-size: 18px;
-    position: relative;
-    text-align: center;
-    padding: 80px 0px 0px;
-}
-
-#b_profile{
-    width: var(--player-profile);
-    height: var(--player-profile);
-    border-radius: 50%;
-    background-image: url("assets/b-profile-water.png");
-    background-size: cover;
-    position: relative;
-    left: calc(50% - (var(--player-profile)/2));
-    margin-top: 40px;
-}
-
-#b_turn{
-    width: var(--player-turn-sign);
-    height: var(--player-turn-sign);
-    border-radius: 50%;
-    box-sizing: border-box;
-    position: relative;
-    left: calc(50% - (var(--player-turn-sign)/2));
-    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
-    border: 1vw solid var(--player-b-colour);
-    filter: drop-shadow(0px 0px 7px #82f0ff90);
-    display: none;
-}
-
-#b_ready{
-    font-family: 'GMarket Sans';
-    font-size: 18px;
-    position: relative;
-    text-align: center;
-    padding: 80px 0px 0px;
-}
 
 .a_token{
     background: var(--player-a-current);
@@ -223,4 +215,127 @@ main{
     width: 15px;
     height: 4px;
     z-index: 1;
+}
+
+/* Sidebar for player information */
+.sidebar{
+    width: 80%;
+    height: 450px;
+    border-radius: 20px;
+    background: var(--side-background);
+    color: var(--text-colour);
+}
+
+.player{
+    font-family: 'montserrat-b';
+    font-size: 26px;
+    text-align: center;
+    padding: 50px 0px 30px;
+    letter-spacing: 1px;
+}
+
+#a_profile{
+    width: var(--player-profile);
+    height: var(--player-profile);
+    border-radius: 50%;
+    background-image: url("./assets-image/a-profile-fire.png");
+    background-size: cover;
+    position: relative;
+    left: calc(50% - (var(--player-profile)/2));
+    margin-top: 40px;
+}
+
+#a_turn{
+    width: var(--player-turn-sign);
+    height: var(--player-turn-sign);
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(50% - (var(--player-turn-sign)/2));
+    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
+    border: 1vw solid var(--player-a-colour);
+    filter: drop-shadow(0px 0px 7px #ff5c5ca0);
+    display: none;
+}
+
+#a_ready{
+    font-family: 'montserrat-r';
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    padding: 80px 0px 0px;
+}
+
+#b_profile{
+    width: var(--player-profile);
+    height: var(--player-profile);
+    border-radius: 50%;
+    background-image: url("./assets-image/b-profile-water.png");
+    background-size: cover;
+    position: relative;
+    left: calc(50% - (var(--player-profile)/2));
+    margin-top: 40px;
+}
+
+#b_turn{
+    width: var(--player-turn-sign);
+    height: var(--player-turn-sign);
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(50% - (var(--player-turn-sign)/2));
+    top: calc((var(--player-profile) - var(--player-turn-sign))/2);
+    border: 1vw solid var(--player-b-colour);
+    filter: drop-shadow(0px 0px 7px #82f0ff90);
+    display: none;
+}
+
+#b_ready{
+    font-family: 'montserrat-r';
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    padding: 80px 0px 0px;
+}
+
+/* Result dialog that appears when the game ends */
+#result_dialog{
+    background: #161f3880;
+    border: none;
+    color: var(--text-colour);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+#result_dialog::backdrop{
+    backdrop-filter: blur(4px);
+}
+
+#result_dialog h2{
+    font-family:'bitbit';
+    font-size: 56pt;
+    filter: drop-shadow(7px 7px 2px black);
+    letter-spacing: 2px;
+    padding: 160px 0px 0px;
+}
+
+#result_message{
+    font-family:'montserrat-b';
+    font-size: 20pt;
+    padding: 15px;
+}
+
+#result_winner{
+    font-family:'montserrat-r';
+    font-size: 14pt;
+    padding: 5px;
+}
+
+#instruction{
+    font-family:'montserrat-r';
+    color: #ffffffaa;
+    font-size: 14pt;
+    padding: 50px;
 }

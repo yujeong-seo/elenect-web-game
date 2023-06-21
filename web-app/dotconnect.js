@@ -125,13 +125,13 @@ DotConnect.empty_adjacent = function (board, turn) {
     const col = DotConnect.curr_positions[turn][1];
     let output = [];
 
-    if (row < 15) {
+    if (row < 14) {
         output.push([row + 1, col]);
     }
     if (row > 0) {
         output.push([row - 1, col]);
     }
-    if (col < 10) {
+    if (col < 9) {
         output.push([row, col + 1]);
     }
     if (col > 0) {
