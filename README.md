@@ -1,27 +1,25 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/uu0DCd-8)
 # Computing 2 Coursework Submission.
 **CID**: 02272316
-
-**Simple Explanation of Game**
-
-Hello, I am trying to create a connection game where two players take turn of placing the token and whenever one can not make any legal moves (= if none of the adjacent block is empty), that player loses. The basic inspiration is the game that connects the dots in one line. (pics below)
-But since I modified it to two player based game, 
-1/ The turn will shift between two players (one token at once)
-2/ The line will be connected by enabling them to place the token only to the adjacent part of their previous ones
-
-The functions I created up to now:
-- altering the turn of the players
-- placing the token to the grid 
-
-The functions I now have to create:
-- only enabling empty, adjacent cell to be selected
-- winning mechanism (checking the valid moves)
-
-Furthermore, additional features that I am considering:
-- placing the random blocks where the selection is disabled 
-- creating a line that connects between the tokens (visual aspect) 
-
 This is the submission template for your Computing 2 Applications coursework submission.
+
+## Game Explanation
+![Screenshot of Elenect Play Screen](game_play.jpeg)
+![Screenshot of Elenect Result Screen](game_result.jpeg)
+
+The game title **ELENECT** is the combination of element and connect.
+The game requires the player to place token on the grid and connect the line
+as long as possible by placing the tokens to the adjacent grid. 
+At the same time, the players should aid to block the path of the opponent. 
+
+A game module, `web-app/dotconnect.js`, contains the function of the two player dot connect game.
+
+A sets of unit tests checking the functionality of the game module is written as 
+`dotconnect.test.js`.
+
+The concept of element clash (fire vs water) and its user interface on web is implemented 
+as front end application in `web-app/default.css`, `web-app/index.html`, and `web-app/main.js`.
+
 
 ## Checklist
 ### Install dependencies locally
@@ -36,7 +34,7 @@ I'll run the same commands when I download your repos.
 ### Game Module – API
 *You will produce an API specification, i.e. a list of function names and their signatures, for a Javascript module that represents the state of your game and the operations you can perform on it that advances the game or provides information.*
 
-- [ ] Include a `.js ` module file in `/web-app` containing the API using `jsdoc`.
+- [] Include a `.js ` module file in `/web-app` containing the API using `jsdoc`.
 - [ ] Update `/jsdoc.json` to point to this module in `.source.include` (line 7)
 - [ ] Compile jsdoc using the run configuration `Generate Docs`
 - [ ] Check the generated docs have compiled correctly.
