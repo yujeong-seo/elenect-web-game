@@ -96,7 +96,7 @@ header{
 
 #howto h2{
     font-family: 'montserrat-b';
-    color: #ccfff9;
+    color: #eae5d3;
     font-size: 26px;
     margin-top: 110px;
     padding: 25px;
@@ -357,8 +357,8 @@ main{
 
 #result_winner{
     font-family:'montserrat-b';
-    font-size: 14pt;
-    padding: 5px;
+    font-size: 16pt;
+    padding: 10px;
 }
 
 #instruction{

@@ -1,9 +1,10 @@
 import R from "./ramda.js";
 
 /**
- * 'dotconnect.js' is a module to model and play Dot Connect and related games. <br>
- * Dot Connect is a game where user connects dots to make the longest line as possible. <br>
- * In this web app, it is implemented as two player and grid-based connection game.
+ * 'dotconnect.js' is a module to model and play Dot Connect and
+ * related games. <br> Dot Connect is a game where user connects
+ * dots to make the longest line as possible. <br> In this web app,
+ * it is implemented as two player and grid-based connection game.
  * @namespace DotConnect
  * @author Yujeong Seo
  * @version 2022/23
@@ -117,12 +118,12 @@ DotConnect.fill_board = function (board, turn) {
  * @memberof DotConnect
  * @function
  * @param {DotConnect.board} board The board to add the block.
- * @returns {void} Adds identifier, returns nothing. 
+ * @returns {void} Adds identifier, returns nothing.
  */
 DotConnect.add_random_block = function (board) {
-    R.range(0,6).forEach(function (i) {
-        let row = random_int(0,14);
-        let col = random_int(0,9);
+    R.range(0, 6).forEach(function () {
+        let row = random_int(0, 14);
+        let col = random_int(0, 9);
         board[row][col] = "x";
     });
 };
