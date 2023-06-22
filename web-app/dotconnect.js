@@ -247,4 +247,27 @@ const no_free_cells = function (board) {
     return free_cells;
 };
 
+/**
+ * Returns the total win, tie, and lose of the players.
+ * @memberof DotConnect
+ * @function
+ * @param {DotConnect.board} board The board to analyse.
+ * @returns {Array.<number>} An array with the number of results.
+ */
+DotConnect.game_stat = function (board) {
+    const result = DotConnect.is_ended(board);
+    if (result === "a") {
+        a_win += 1;
+    } else if (result === "b") {
+        b_win += 1;
+    } else if (result === "tie") {
+        tie += 1;
+    }
+    return [a_win, tie, b_win];
+};
+
+let a_win = 0;
+let tie = 0;
+let b_win = 0;
+
 export default Object.freeze(DotConnect);

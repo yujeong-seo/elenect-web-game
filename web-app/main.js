@@ -199,6 +199,20 @@ const check_game_end = function (board) {
         b_turn.style.display = "none";
         result_dialog.showModal();
     }
+    update_stat();
+};
+
+// update the game statistics
+const update_stat = function () {
+    const game_stat = DotConnect.game_stat(board);
+
+    document.getElementById("a_win").textContent = game_stat[0];
+    document.getElementById("a_tie").textContent = game_stat[1];
+    document.getElementById("a_lose").textContent = game_stat[2];
+
+    document.getElementById("b_win").textContent = game_stat[2];
+    document.getElementById("b_tie").textContent = game_stat[1];
+    document.getElementById("b_lose").textContent = game_stat[0];
 };
 
 // VISUAL ELEMENTS

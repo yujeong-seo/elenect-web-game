@@ -36,7 +36,7 @@ html{
     background: var(--main-background);
     color: var(--text-colour);
     font-family: 'montserrat-r';
-    min-width: 650px;
+    min-width: 680px;
 }
 
 /* Top header for title and navigation bars */
@@ -227,10 +227,11 @@ main{
 /* Sidebar for player information */
 .sidebar{
     width: 80%;
-    height: 450px;
+    height: 500px;
     border-radius: 20px;
     background: var(--side-background);
     color: var(--text-colour);
+    align-items: center;
 }
 
 .player{
@@ -239,6 +240,26 @@ main{
     text-align: center;
     padding: 50px 0px 30px;
     letter-spacing: 1px;
+}
+
+.game_stat{
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    padding: 60px 0px 20px;
+}
+
+.stat_header{
+    font-family: 'montserrat-b';
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+}
+
+.stat_info{
+    font-family: 'montserrat-r';
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
 }
 
 #a_profile{
@@ -266,11 +287,11 @@ main{
 }
 
 #a_ready{
-    font-family: 'montserrat-r';
-    font-size: 20px;
+    font-family: 'montserrat-b';
+    font-size: 18px;
     position: relative;
     text-align: center;
-    padding: 80px 0px 0px;
+    padding: 20px 0px 0px;
 }
 
 #b_profile{
@@ -298,11 +319,11 @@ main{
 }
 
 #b_ready{
-    font-family: 'montserrat-r';
-    font-size: 20px;
+    font-family: 'montserrat-b';
+    font-size: 18px;
     position: relative;
     text-align: center;
-    padding: 80px 0px 0px;
+    padding: 20px 0px 0px;
 }
 
 /* Result dialog that appears when the game ends */
