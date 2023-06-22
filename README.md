@@ -1,19 +1,19 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/uu0DCd-8)
 # Computing 2 Coursework Submission.
 **CID**: 02272316
-This is the submission template for your Computing 2 Applications coursework submission.
+
 
 ## Game Explanation
 ![Screenshot of Elenect Play Screen](game_play.jpeg)
 ![Screenshot of Elenect Result Screen](game_result.jpeg)
 
-The game title **ELENECT** is the combination of element and connect.
+The game title **ELENECT** is the combination of **element** and **connect**.
 The game requires the player to place token on the grid and connect the line
 as long as possible by placing the tokens to the adjacent grid. 
 At the same time, the players should aid to block the path of the opponent. 
 
 A game module, `web-app/dotconnect.js`, contains the function of the two player dot connect game.
-
+The functions are documented in its API. 
 A sets of unit tests checking the functionality of the game module is written as 
 `dotconnect.test.js`.
 
@@ -34,7 +34,7 @@ I'll run the same commands when I download your repos.
 ### Game Module – API
 *You will produce an API specification, i.e. a list of function names and their signatures, for a Javascript module that represents the state of your game and the operations you can perform on it that advances the game or provides information.*
 
-- [] Include a `.js ` module file in `/web-app` containing the API using `jsdoc`.
+- [ ] Include a `.js ` module file in `/web-app` containing the API using `jsdoc`.
 - [ ] Update `/jsdoc.json` to point to this module in `.source.include` (line 7)
 - [ ] Compile jsdoc using the run configuration `Generate Docs`
 - [ ] Check the generated docs have compiled correctly.
