@@ -6,7 +6,7 @@
     --main-background: linear-gradient(180deg, #161F38 0%, #223054 100%);
     --side-background: linear-gradient(180deg, #414a644d 0%, #414A64 100%);
     --text-colour: #ffffff;
-    --board-line: #ffffff4d;
+    --board-line: #6f7da5;
     --player-a-colour: #C23B3B;
     --player-a-current: #c23b3b9a;
     --player-b-colour: #71DBEA;
@@ -53,7 +53,7 @@ header{
     font-size: 48px;
     font-family: 'bitbit';
     position: relative;
-    color: #ccfff9;
+    color: #eae5d3;
     text-align: center;
     letter-spacing: 2px;
 }
@@ -149,7 +149,7 @@ main{
     display: grid;
     grid-template: repeat(15, 1fr) / repeat(10, 1fr);
     place-items: center;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 2px solid var(--board-line);
     background-image: url("./assets-image/background-grid.png");
     background-size: cover;
@@ -180,6 +180,13 @@ main{
     position: relative;
     cursor: pointer;
 } 
+
+.block{
+    width: 36px;
+    height: 36px;
+    border-radius : 1px;
+    background: var(--board-line);
+}
 
 .a_token{
     background: var(--player-a-current);
@@ -328,7 +335,7 @@ main{
 }
 
 #result_winner{
-    font-family:'montserrat-r';
+    font-family:'montserrat-b';
     font-size: 14pt;
     padding: 5px;
 }

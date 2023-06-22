@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="DotConnect.html">DotConnect</a><ul class='methods'><li data-type='method'><a href="DotConnect.html#.connected_dots">connected_dots</a></li><li data-type='method'><a href="DotConnect.html#.empty_adjacent">empty_adjacent</a></li><li data-type='method'><a href="DotConnect.html#.fill_board">fill_board</a></li><li data-type='method'><a href="DotConnect.html#.initial_board">initial_board</a></li><li data-type='method'><a href="DotConnect.html#.is_ended">is_ended</a></li><li data-type='method'><a href="DotConnect.html#.swap_turn">swap_turn</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="DotConnect.html">DotConnect</a><ul class='methods'><li data-type='method'><a href="DotConnect.html#.add_random_block">add_random_block</a></li><li data-type='method'><a href="DotConnect.html#.connected_dots">connected_dots</a></li><li data-type='method'><a href="DotConnect.html#.empty_adjacent">empty_adjacent</a></li><li data-type='method'><a href="DotConnect.html#.fill_board">fill_board</a></li><li data-type='method'><a href="DotConnect.html#.initial_board">initial_board</a></li><li data-type='method'><a href="DotConnect.html#.is_ended">is_ended</a></li><li data-type='method'><a href="DotConnect.html#.swap_turn">swap_turn</a></li></ul></li></ul>
     
 </nav>
 
@@ -83,7 +83,7 @@ In this web app, it is implemented as two player and grid-based connection game.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line1">line 1</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -183,6 +183,165 @@ In this web app, it is implemented as two player and grid-based connection game.
 
     
 
+    <h4 class="name" id=".add_random_block"><span class="type-signature type-signature-static">(static) </span>add_random_block<span class="signature">(board)</span><span class="type-signature"> &rarr; {void}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Creates a random interrupting blocks on the board. <br>
+Users can not make a move to the grid identified as a block.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line122">line 122</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DotConnect.html#.board">DotConnect.board</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The board to add the block.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Adds identifier, returns nothing.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".connected_dots"><span class="type-signature type-signature-static">(static) </span>connected_dots<span class="signature">(board)</span><span class="type-signature"> &rarr; {Array.&lt;number>}</span></h4>
 
     
@@ -199,7 +358,7 @@ In this web app, it is implemented as two player and grid-based connection game.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line152">line 152</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line176">line 176</a>
     </li></ul></dd>
     
 
@@ -360,7 +519,7 @@ and is adjacent to the most recent token that the player has placed.</p></li></u
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line123">line 123</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line147">line 147</a>
     </li></ul></dd>
     
 
@@ -544,7 +703,7 @@ Helps identifying which cell is filled with which player's token or empty.</p></
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line102">line 102</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -728,7 +887,7 @@ Unless there is specified value, returns a 10x15 board.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line69">line 69</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -950,7 +1109,7 @@ to check the status and if any more legal moves can be made.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line178">line 178</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line202">line 202</a>
     </li></ul></dd>
     
 
@@ -1112,7 +1271,7 @@ return which player is next to play.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line83">line 83</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line85">line 85</a>
     </li></ul></dd>
     
 
@@ -1277,7 +1436,7 @@ Tokens can be placed in any empty positions by user selection.</p></li></ul></dd
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line11">line 11</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -1359,7 +1518,7 @@ and corresponding values stores that player's current token position.</p></li></
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line54">line 54</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -1441,7 +1600,7 @@ and corresponding values stores that player's previous token position.</p></li><
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line42">line 42</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -1522,7 +1681,7 @@ could be placed on the game board grid.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line33">line 33</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -1603,7 +1762,7 @@ turn 1 indicates player B (water).</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line19">line 19</a>
+        <a href="dotconnect.js.html">dotconnect.js</a>, <a href="dotconnect.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -1687,7 +1846,7 @@ turn 1 indicates player B (water).</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jun 20 2023 19:47:53 GMT+0100 (British Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Thu Jun 22 2023 11:20:08 GMT+0100 (British Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

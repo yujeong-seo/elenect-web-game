@@ -1,3 +1,5 @@
+import R from "./ramda.js";
+
 /**
  * 'dotconnect.js' is a module to model and play Dot Connect and related games. <br>
  * Dot Connect is a game where user connects dots to make the longest line as possible. <br>
@@ -110,6 +112,28 @@ DotConnect.fill_board = function (board, turn) {
 };
 
 /**
+ * Creates a random interrupting blocks on the board. <br>
+ * Users can not make a move to the grid identified as a block.
+ * @memberof DotConnect
+ * @function
+ * @param {DotConnect.board} board The board to add the block.
+ * @returns {void} Adds identifier, returns nothing. 
+ */
+DotConnect.add_random_block = function (board) {
+    R.range(0,6).forEach(function (i) {
+        let row = random_int(0,14);
+        let col = random_int(0,9);
+        board[row][col] = "x";
+    });
+};
+
+const random_int = function (min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+/**
  * Returns the array of positions that player
  * can place their next tokens. <br>
  * The positions are empty (no tokens placed)
@@ -182,19 +206,24 @@ DotConnect.is_ended = function (board) {
     const connects = DotConnect.connected_dots(board);
     let output;
 
-    if ((connects[0] > connects[1]) && b_blocked) {
+    if (connects[0] === connects[1]) {
+        if (a_blocked && b_blocked) {
+            output = "tie";
+        } else if (a_blocked && !b_blocked) {
+            output = "b";
+        } else if (!a_blocked && b_blocked) {
+            output = "a";
+        }
+    } else if ((connects[0] > connects[1]) && b_blocked) {
         output = "a";
-    } else if ((connects[0] === connects[1]) && a_blocked) {
-        output = (
-            b_blocked
-            ? "tie"
-            : "b"
-        );
+    } else if ((connects[0] < connects[1]) && a_blocked) {
+        output = "b";
     } else if (!no_winner) {
         output = "tie";
     } else {
         output = undefined;
     }
+
     return output;
 };
 
