@@ -1,5 +1,6 @@
 ## Javascript Web Game
-**Module**: Year 1, Computing 2: Applications
+**Module**: Year 1, Computing 2 Applications
+
 **Year**: 2023 
 
 ![Screenshot of Elenect Play Screen](game_play.jpeg)
