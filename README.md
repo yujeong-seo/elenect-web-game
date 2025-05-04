@@ -1,8 +1,7 @@
-# Javascript Web Game
-**YEAR**: 2023 May - June
+## Javascript Web Game
+**Module**: Year 1, Computing 2: Applications
+**Year**: 2023 
 
-
-## Game Explanation
 ![Screenshot of Elenect Play Screen](game_play.jpeg)
 ![Screenshot of Elenect Result Screen](game_result.jpeg)
 
