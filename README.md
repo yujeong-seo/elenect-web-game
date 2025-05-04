@@ -1,6 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/uu0DCd-8)
-# Computing 2 Coursework Submission.
-**CID**: 02272316
+# Javascript Web Game
+**YEAR**: 2023 May - June
 
 
 ## Game Explanation
@@ -8,22 +7,23 @@
 ![Screenshot of Elenect Result Screen](game_result.jpeg)
 
 The game title **ELENECT** is the combination of **element** and **connect**.
-The game requires the player to place token on the grid and connect the line
-as long as possible by placing the tokens to the adjacent grid. 
-At the same time, the players should aid to block the path of the opponent. 
+The game requires the player to place a token on the grid and connect the line
+as long as possible by placing a token to the adjacent grid. 
+At the same time, the players should aim to block the path of the opponent. 
 
-A game module, `web-app/dotconnect.js`, contains the function of the two player dot connect game.
+A game module, `web-app/dotconnect.js`, contains the function of the two-player dot connect game.
 The functions are documented in its API. 
-A sets of unit tests checking the functionality of the game module is written as 
+Sets of unit tests checking the functionality of the game module are written as 
 `dotconnect.test.js`.
 
-The concept of element clash (fire vs water) and its user interface on web is implemented 
+The concept of element clash (fire vs water) and its user interface on web are implemented 
 as front end application in `web-app/default.css`, `web-app/index.html`, and `web-app/main.js`.
+
 
 
 ## Checklist
 ### Install dependencies locally
-This template relies on a a few packages from the Node Package Manager, npm.
+This template relies on a few packages from the Node Package Manager, npm.
 To install them run the following commands in the terminal.
 ```properties
 npm install
@@ -63,8 +63,3 @@ I'll run the same commands when I download your repos.
   - [ ] `default.css`
   - [ ] `main.js`
   - [ ] Any other files you need to include.
-
-### Finally
-- [ ] Push to GitHub.
-- [ ] Sync the changes.
-- [ ] Check submission on GitHub website.
